@@ -38,7 +38,7 @@
     if ([GPUImageVideoCamera supportsFastTextureUpload])
     {
         [GPUImageOpenGLESContext useImageProcessingContext];
-        CVReturn err = CVOpenGLESTextureCacheCreate(kCFAllocatorDefault, NULL, (__bridge void *)[[GPUImageOpenGLESContext sharedImageProcessingOpenGLESContext] context], NULL, &coreVideoTextureCache);
+        CVReturn err = CVOpenGLESTextureCacheCreate(kCFAllocatorDefault, NULL, (__bridge CVEAGLContext)((__bridge void *)[[GPUImageOpenGLESContext sharedImageProcessingOpenGLESContext] context]), NULL, &coreVideoTextureCache);
         if (err) 
         {
             NSAssert(NO, @"Error at CVOpenGLESTextureCacheCreate %d");
